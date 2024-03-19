@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherApp3.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Start">
+
+            <Grid ColumnSpacing="5" RowSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Picker x:Name="cityPicker" Title = "Выберите город:" FontSize="Medium"
+                    SelectedIndexChanged="PickerSelectedIndexChanged"
+                    Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                <Picker.Items>
+                    <!--<x:String>Орехово-Зуево</x:String>
+                    <x:String>Сочи</x:String>-->
+                    <!--<x:String>Мурманск</x:String>-->
+                </Picker.Items>
+            </Picker>
+            <Button Text="Узнать погоду" Command="{Binding LoadDataCommand}"  
+                    Grid.Column="0" Grid.Row="1"/>
+            <Label FontSize="Micro" Text="Данные на дату:" 
+                   Grid.Column="0" Grid.Row="2" />
+            <Label FontSize="Micro" FontAttributes="Bold" Text="{Binding Time}" 
+                   Grid.Column="1" Grid.Row="2"/>
+            <Label FontSize="Micro" Text="Темпуратура:" 
+                   Grid.Column="0" Grid.Row="3" />
+                <Label FontSize="Micro" FontAttributes="Bold"  Text="{Binding Temperature}" 
+                   Grid.Column="1" Grid.Row="3"/>
+                <Label FontSize="Micro" Text="Скорость ветра:"
+                   Grid.Column="0" Grid.Row="4" />
+            <Label FontSize="Micro" FontAttributes="Bold" Text="{Binding Windspeed}"
+                   Grid.Column="1" Grid.Row="4"/>
+                <Label FontSize="Micro" Text="Относительная &#10;влажность:" 
+                   Grid.Column="0" Grid.Row="5" />
+            <Label FontSize="Micro" FontAttributes="Bold" Text="{Binding Relative_humidity_2m}"
+                   Grid.Column="1" Grid.Row="5" />
+            <Label FontSize="Micro" Text="Время суток:"
+                   Grid.Column="0" Grid.Row="6" />
+            <Label FontSize="Micro" FontAttributes="Bold" Text="{Binding Is_day}" 
+                   Grid.Column="1" Grid.Row="6"/>
+            <Label FontSize="Micro" FontAttributes="Bold" Text="{Binding CurrentUnits[0]}"
+                    Grid.Column="1" Grid.Row="7"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage> 
